@@ -1,0 +1,30 @@
+{
+  "name": "k8s-boot",
+  "version": "1.0.0",
+  "description": "Bootstrap k8s cluster in some nodes.",
+  "license": "MIT",
+  "homepage": "https://github.com/lizhigang858/k8s-boot.git#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lizhigang858/k8s-boot.git"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "keywords": [
+    "k8s",
+    "kubernetes",
+    "boot"
+  ],
+  "preferGlobal": true,
+  "author": "lizhigang",
+  "bin": {
+    "k8sboot": "bin/k8sboot"
+  },
+  "dependencies": {
+    "colors": "^1.3.3",
+    "commander": "^2.20.0",
+    "inquirer": "^6.3.1",
+    "shelljs": "^0.8.3"
+  }
+}
