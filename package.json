@@ -1,5 +1,5 @@
 {
-  "name": "k8s-boot",
+  "name": "k8sboot",
   "version": "1.0.0",
   "description": "Bootstrap k8s cluster in some nodes.",
   "license": "MIT",
@@ -22,6 +22,7 @@
     "k8sboot": "bin/k8sboot"
   },
   "dependencies": {
+    "chalk": "^2.4.2",
     "colors": "^1.3.3",
     "commander": "^2.20.0",
     "inquirer": "^6.3.1",

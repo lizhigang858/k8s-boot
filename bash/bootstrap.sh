@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Update hosts file
+echo "[TASK 1] Update /etc/hosts file"
+cat >>/etc/hosts<<EOF
+192.168.50.100 kmaster.example.com kmaster
+192.168.50.101 kworker1.example.com kworker1
+192.168.50.102 kworker2.example.com kworker2
+EOF
+
 # Install docker from Docker-ce repository
 echo "[TASK 1] Install docker container engine"
 yum install -y  yum-utils device-mapper-persistent-data lvm2 

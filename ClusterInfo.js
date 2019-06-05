@@ -12,7 +12,7 @@ const clusterInfo = {
             password: "root"
         },
         {
-            hostName: "k8sworker2",
+            host: "k8sworker2",
             ip: "192.168.50.152",
             password: "root"
         }
