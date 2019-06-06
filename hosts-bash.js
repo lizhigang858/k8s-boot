@@ -4,6 +4,8 @@ const shell = require('shelljs');
 const {globalV} = require('./global-variables');
 
 const createHostsBash = (clusterInfo) => {
+    console.log(globalV);
+
     let data = '#!/bin/bash\n' +
         '# Update hosts file\n' +
         'echo "[TASK 1] Update /etc/hosts file"\n' +
@@ -14,8 +16,11 @@ const createHostsBash = (clusterInfo) => {
 
     let compiled = _.template(data);
     let content = compiled(clusterInfo);
-    shell.rm(globalV.updateHostsPath);
-    fs.appendFileSync(globalV.updateHostsPath, content);
+    shell.rm(globalV.updateHostsPathOrg);
+    fs.appendFileSync(globalV.updateHostsPathOrg, content);
+
+    //修改flannel的iface
+    shell.sed('-i','--iface=.*','--iface='+clusterInfo.master.ip,globalV.flannelOrg)
 };
 
 module.exports = {createHostsBash};

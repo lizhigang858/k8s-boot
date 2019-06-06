@@ -1,6 +1,6 @@
 {
   "name": "k8sboot",
-  "version": "1.0.0",
+  "version": "1.1.2",
   "description": "Bootstrap k8s cluster in some nodes.",
   "license": "MIT",
   "homepage": "https://github.com/lizhigang858/k8s-boot.git#readme",

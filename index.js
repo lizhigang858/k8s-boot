@@ -1,12 +1,10 @@
 const program = require('commander');
 const {prompt} = require('inquirer');
-const {bootMaster} = require('./boot-node');
 const chalk = require('chalk');
 // const figlet = require('figlet');
-const {createHostsBash} = require('./hosts-bash');
+const {setupCluster} = require('./setup-cluster');
 
 module.exports = () => {
-
     // console.log(figlet.textSync('Kubernetes Bootstrap!', {
     //     // font: 'Ghost',
     //     horizontalLayout: 'default',
@@ -54,7 +52,7 @@ module.exports = () => {
             type: 'input',
             name: 'port',
             message: 'SSH port:',
-            default: 22,
+            default: '22',
             validate: (value) => {
                 let pass = value.match(/^([0-9]{1,4}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$/g);
                 if (pass) {
@@ -96,22 +94,20 @@ module.exports = () => {
         console.info(chalk.green("Please input master info"));
         prompt(qNode).then(answer => {
             cluster.master = answer;
+            cluster.workers = [];
             inquireWorker();
         });
     }
 
     function inquireWorker() {
         console.info(chalk.green("Please input worker info"));
-        cluster.worker = [];
         prompt(qNode).then(answer => {
-            cluster.worker.push(answer);
+            cluster.workers.push(answer);
             prompt(qAnotherWorker).then(answer => {
                 if (answer.anotherWorker) {
                     inquireWorker();
                 } else {
-                    console.log(cluster);
-                    createHostsBash(cluster);
-                    bootMaster(cluster);
+                    setupCluster(cluster);
                 }
             })
         });

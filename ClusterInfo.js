@@ -3,18 +3,21 @@ const clusterInfo = {
     master: {
         host: "k8smaster",
         ip: "192.168.50.150",
-        password: "root"
+        password: "root",
+        port: "22"
     },
     workers: [
         {
             host: "k8sworker1",
             ip: "192.168.50.151",
-            password: "root"
+            password: "root",
+            port: "22"
         },
         {
             host: "k8sworker2",
             ip: "192.168.50.152",
-            password: "root"
+            password: "root",
+            port: "22"
         }
     ]
 };

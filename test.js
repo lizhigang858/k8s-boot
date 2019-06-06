@@ -1,7 +1,13 @@
-const {bootMaster} = require('./boot-node');
+const {bootNode} = require('./boot-node');
 const {clusterInfo} = require('./ClusterInfo');
 const {createHostsBash} = require('./hosts-bash');
 
-// bootMaster(clusterInfo);
+const {setupCluster} = require('./setup-cluster');
+const shelljs = require('shelljs');
 
-createHostsBash(clusterInfo);
+// bootNode(clusterInfo);
+
+// createHostsBash(clusterInfo);
+
+setupCluster(clusterInfo);
+// console.log(pathToModule);
